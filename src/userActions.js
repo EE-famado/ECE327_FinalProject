@@ -42,6 +42,44 @@ function initActions() {
             let x = selection.id[0];
             let y = selection.id[1];
             board.board[x][y] = this.textContent == "" ? 0 : parseInt(this.textContent)
+            //parseInt(this.textContent) is the number that is inputted onto the boardSize
+            //these if statements use the number to set the background of that square to the professor corresponding with the number
+            if (parseInt(this.textContent)==1){
+                    document.querySelector('.selected').style.backgroundImage = "url('images/Dens.png')";
+                    document.querySelector('.selected').style.backgroundSize = "cover";
+            }
+            if (parseInt(this.textContent)==2){
+                    document.querySelector('.selected').style.backgroundImage = "url('images/Lutch.png')";
+                    document.querySelector('.selected').style.backgroundSize = "cover";
+            }
+            if (parseInt(this.textContent)==3){
+                    document.querySelector('.selected').style.backgroundImage = "url('images/Stormy.png')";
+                    document.querySelector('.selected').style.backgroundSize = "cover";
+            }
+            if (parseInt(this.textContent)==4){
+                    document.querySelector('.selected').style.backgroundImage = "url('images/daddyb.png')";
+                    document.querySelector('.selected').style.backgroundSize = "cover";
+            }
+            if (parseInt(this.textContent)==5){
+                    document.querySelector('.selected').style.backgroundImage = "url('images/Gutirrez.png')";
+                    document.querySelector('.selected').style.backgroundSize = "cover";
+            }
+            if (parseInt(this.textContent)==6){
+                    document.querySelector('.selected').style.backgroundImage = "url('images/Pisano-for-web.png')";
+                    document.querySelector('.selected').style.backgroundSize = "cover";
+            }
+            if (parseInt(this.textContent)==7){
+                    document.querySelector('.selected').style.backgroundImage = "url('images/Hauser.png')";
+                    document.querySelector('.selected').style.backgroundSize = "cover";
+            }
+            if (parseInt(this.textContent)==8){
+                    document.querySelector('.selected').style.backgroundImage = "url('images/Farny.png')";
+                    document.querySelector('.selected').style.backgroundSize = "cover";
+            }
+            if (parseInt(this.textContent)==9){
+                    document.querySelector('.selected').style.backgroundImage = "url('images/Ray.png')";
+                    document.querySelector('.selected').style.backgroundSize = "cover";
+            }
         }
     }
 
@@ -51,10 +89,18 @@ function initActions() {
         let isValid = validater.runTests();
         if (isValid) {
             //alert("You've Solved this. Awesome!!!")
-            stopTimer();//stops the timer when the solutuin is found
-            alert("You finished this in " + hr + " hours " + min + " minutes and " + sec + " seconds!"); //displays how fast it was done
-            resetTimer(); // resets the timer 
-        } else {
+            stopTimer();//stops the timer when the solution is found
+            alert("You finished this in " + hr + " hours " + min + " minutes and " + sec + " seconds!")
+            if (window.confirm('Click OK to see your prize!'))
+            {
+              //rick roll
+              window.open('https://www.youtube.com/watch?v=iik25wqIuFo', '_blank');
+            };
+
+          //  alert("You finished this in " + hr + " hours " + min + " minutes and " + sec + " seconds!"); //displays how fast it was done
+            resetTimer(); // resets the timer
+            }
+          else {
             alert("That's not correct. Keep trying.")
         }
     }
@@ -83,25 +129,37 @@ function initActions() {
 
             //clear user input
             document.querySelector('#clear').addEventListener('click', (event) => {
+              if (confirm('Clearing the board will erase all work. Press OK to proceed.')) {
+                //Verifying the user, in case they do not know it will clear the board/they didn't mean to click the button
                 event.stopPropagation()
                 clearUserInput()
                 dotMenuDiv.classList.remove('d-block')
+              }
+              else{
+                return false;
+              }
             })
 
             //load new game, with same user inputs
             document.querySelector('#newGame').addEventListener('click', (event) => {
+              if (confirm('Starting a new game will end the current game. Press OK to proceed.')) {
+                //Verifying the user, in case they do not know it will end the current game/they didn't mean to click the button
                 event.stopPropagation()
                 dotMenuDiv.classList.remove('d-block')
                 startHandler()
+                }
+              else {
+                  return false;
+                }
             })
 
             document.querySelector('#solver').addEventListener('click', (event) => {
-                event.stopPropagation()                
+                event.stopPropagation()
                 solverMenu.classList.toggle('d-block')
             })
-            
+
             //hide menu when clicking on div
-            document.querySelector('body').addEventListener('click', () => {                
+            document.querySelector('body').addEventListener('click', () => {
                 dotMenuDiv.classList.remove('d-block')
                 solverMenu.classList.remove('d-block')
             })
@@ -113,7 +171,7 @@ function initActions() {
         if (selection = document.querySelector('.selected')) {
             let k = event.keyCode;
             if (((k < 46 || k > 57) && (k < 96 || k > 105)) || k == 47) {
-                //not a number        
+                //not a number
             } else {
                 selection.textContent = event.keyCode == 46 ? "" : event.key;
                 let x = selection.id[0];
@@ -156,8 +214,8 @@ function initActions() {
         }
     }
 
-    function solverStartHandler() {     
-        dotMenuDiv.classList.remove('d-block')   
+    function solverStartHandler() {
+        dotMenuDiv.classList.remove('d-block')
         solver = new Solver(board.board)
         solver.watch = solverWatchButton.checked;
         solver.requestStop = false;
@@ -167,7 +225,7 @@ function initActions() {
 
     function speedRangeHandler(event){
         event.stopPropagation();
-        
+
     }
 
     function declareBoardElements() {
@@ -182,12 +240,12 @@ function initActions() {
 
         emptyItems.forEach(x => x.addEventListener('click', emptyItemHandler))
         keyPadItems.forEach(x => x.addEventListener('click', keyPadHandler))
-        dotMenuButton.addEventListener('click', (e) => dotMenuHandler(e))        
+        dotMenuButton.addEventListener('click', (e) => dotMenuHandler(e))
     }
 }
 
-function startTimer() { //when called check to see if timer is running and if it is then sets it to stop 
-  if (stoptime == true) { 
+function startTimer() { //when called check to see if timer is running and if it is then sets it to stop
+  if (stoptime == true) {
         stoptime = false;
         timerCycle(); //calls timerCycle
     }

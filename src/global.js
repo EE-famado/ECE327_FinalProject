@@ -29,7 +29,7 @@ function random(max, min = 0) {
 
 
 // we have row, columns and boxes in a sudoku
-//accessing rows is pretty simple. 
+//accessing rows is pretty simple.
 //the below function returns a 2D array with
 //box values inside a single row
 function generateBoxArray(board, boardSize) {

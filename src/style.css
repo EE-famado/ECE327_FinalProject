@@ -6,6 +6,20 @@
           box-sizing: border-box;
 }
 
+#footer {
+  text-align: center;
+  background-color: Pink;
+  height:100%;
+  width:100%;
+  margin: auto;
+  padding: 20px;
+}
+
+p{
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
 .flex-col {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -76,16 +90,17 @@ html {
 html body {
   height: 100%;
   width: 100%;
-  background-image: url("images/bg.jpg");
+  background-image: url("images/unidens.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-size: 100% 100%;
 }
 
 html body #main__container {
+  margin: 1em;
   display: none;
   width: 60vh;
-  height: 80vh;
+  height: 90vh;
   position: relative;
 }
 
@@ -114,8 +129,9 @@ html body #main__container #header__controls #header__menu img:active {
 }
 
 html body #main__container #header__controls #header__header {
-  width: 33.3%;
-  font-size: 2rem;
+  width: 60%;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
   text-align: center;
   font-family: "Recursive";
 }
@@ -296,14 +312,14 @@ html body #main__container #board .grid__item {
 
 html body #main__container #keypad {
   width: 100%;
-  height: 6vh;
-  margin-top: 2vh;
+  height: 8vh;
+  margin-top: 5vh;
   font-family: "Red Rose";
 }
 
 html body #main__container #keypad .keypad__item {
-  height: 80%;
-  width: 8%;
+  height: 180%;
+  width: 200%;
   margin-right: 1%;
   margin-left: 1%;
   border: 1px solid black;
@@ -399,7 +415,7 @@ html body #home #start {
   font-family: 'Raleway';
   width: 40%;
   font-size: 2.25rem;
-  position: absolute;
+  position: relative;
   bottom: 10%;
   left: 0;
   right: 0;
