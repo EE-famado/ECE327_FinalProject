@@ -259,15 +259,15 @@ function stopTimer() { //checks to see if timer is running and stops it
   }
 }
 
-function timerCycle() { // checks to see if the timer is running and then continously increases and outputs the seconds minutes and hours
+function timerCycle() { // checks to see if the timer is running and then continously increases and outputs the seconds, minutes, and hours
     if (stoptime == false) {
-    sec = parseInt(sec); //convert the current saved strings of sec min and hr to integers
+    sec = parseInt(sec); //convert the current saved strings of sec, min, and hr to integers
     min = parseInt(min);
     hr = parseInt(hr);
 
     sec = sec + 1;
 
-    if (sec == 60) { //once 60 seconds is ecliplesd reset the seconds and add to minutes. Same goes fot the hour
+    if (sec == 60) { //once 60 seconds is eclipsed reset the seconds and add to minutes. Same goes for the hour
       min = min + 1;
       sec = 0;
     }
@@ -277,7 +277,7 @@ function timerCycle() { // checks to see if the timer is running and then contin
       sec = 0;
     }
 
-    if (sec < 10 || sec == 0) { // createst the zero before the time for when the values only are in the ones place
+    if (sec < 10 || sec == 0) { // creates the zero before the time for when the values are only in the ones place
       sec = '0' + sec;
     }
     if (min < 10 || min == 0) {
