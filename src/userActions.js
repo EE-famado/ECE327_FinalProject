@@ -93,7 +93,7 @@ function initActions() {
             alert("You finished this in " + hr + " hours " + min + " minutes and " + sec + " seconds!") //displays how fast it was done
             if (window.confirm('Click OK to see your prize!'))
             {
-              //rick roll
+              //surprise
               window.open('https://www.youtube.com/watch?v=iik25wqIuFo', '_blank');
             };
             resetTimer(); // resets the timer
