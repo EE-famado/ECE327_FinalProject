@@ -80,6 +80,7 @@ function initActions() {
                     document.querySelector('.selected').style.backgroundImage = "url('images/Ray.png')";
                     document.querySelector('.selected').style.backgroundSize = "cover";
             }
+            //If empty/if trash is used to delete-> the background image gets deleted
             if (isNaN(parseInt(this.textContent))){
                     document.querySelector('.selected').style.backgroundImage = "";
             }
