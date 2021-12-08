@@ -43,7 +43,7 @@ function initActions() {
             let y = selection.id[1];
             board.board[x][y] = this.textContent == "" ? 0 : parseInt(this.textContent)
             //parseInt(this.textContent) is the number that is inputted onto the boardSize
-            //these if statements use the number to set the background of that square to the professor corresponding with the number
+            //set the background of that square to the professor corresponding with the number
             if (parseInt(this.textContent)==1){
                     document.querySelector('.selected').style.backgroundImage = "url('images/Dens.png')";
                     document.querySelector('.selected').style.backgroundSize = "cover";
@@ -79,6 +79,9 @@ function initActions() {
             if (parseInt(this.textContent)==9){
                     document.querySelector('.selected').style.backgroundImage = "url('images/Ray.png')";
                     document.querySelector('.selected').style.backgroundSize = "cover";
+            }
+            if (isNaN(parseInt(this.textContent))){
+                    document.querySelector('.selected').style.backgroundImage = "";
             }
         }
     }
