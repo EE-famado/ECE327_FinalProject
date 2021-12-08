@@ -70,6 +70,7 @@ class View{
 
                 element.textContent = board[i][j] > 0 ? board[i][j] : " ";
                 let given = board[i][j] > 0 ? "given " : "emptyItem ";
+                element.style.backgroundImage = "";
 
                 element.classList.add(given.replace(" ",''))
 
