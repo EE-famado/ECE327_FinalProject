@@ -143,12 +143,15 @@ function initActions() {
               }
             })
 
-            //load new game, with same user inputs
+            //load new game
             document.querySelector('#newGame').addEventListener('click', (event) => {
               if (confirm('Starting a new game will end the current game. Press OK to proceed.')) {
                 //Verifying the user
                 event.stopPropagation()
                 dotMenuDiv.classList.remove('d-block')
+                hr = 0;
+                min = 0;
+                sec = 0;
                 startHandler()
               }
               else {
