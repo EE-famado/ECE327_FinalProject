@@ -90,14 +90,12 @@ function initActions() {
         if (isValid) {
             //alert("You've Solved this. Awesome!!!")
             stopTimer();//stops the timer when the solution is found
-            alert("You finished this in " + hr + " hours " + min + " minutes and " + sec + " seconds!")
+            alert("You finished this in " + hr + " hours " + min + " minutes and " + sec + " seconds!") //displays how fast it was done
             if (window.confirm('Click OK to see your prize!'))
             {
               //rick roll
               window.open('https://www.youtube.com/watch?v=iik25wqIuFo', '_blank');
             };
-
-          //  alert("You finished this in " + hr + " hours " + min + " minutes and " + sec + " seconds!"); //displays how fast it was done
             resetTimer(); // resets the timer
             }
           else {
@@ -130,12 +128,13 @@ function initActions() {
             //clear user input
             document.querySelector('#clear').addEventListener('click', (event) => {
               if (confirm('Clearing the board will erase all work. Press OK to proceed.')) {
-                //Verifying the user, in case they do not know it will clear the board/they didn't mean to click the button
+                //Verifying the user
                 event.stopPropagation()
                 clearUserInput()
                 dotMenuDiv.classList.remove('d-block')
               }
               else{
+                //If they press Cancel instead of OK, it doesn't clear the board
                 return false;
               }
             })
@@ -143,14 +142,15 @@ function initActions() {
             //load new game, with same user inputs
             document.querySelector('#newGame').addEventListener('click', (event) => {
               if (confirm('Starting a new game will end the current game. Press OK to proceed.')) {
-                //Verifying the user, in case they do not know it will end the current game/they didn't mean to click the button
+                //Verifying the user
                 event.stopPropagation()
                 dotMenuDiv.classList.remove('d-block')
                 startHandler()
-                }
+              }
               else {
-                  return false;
-                }
+                //If they press Cancel instead of OK, it doesn't start a new game
+                return false;
+              }
             })
 
             document.querySelector('#solver').addEventListener('click', (event) => {
