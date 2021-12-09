@@ -10,4 +10,4 @@ Our project is creating a Sudoku web browser game using HTML, CSS, and Javascrip
 
 Simply download all of the files together and open the HTML file in a browser such as Google Chrome. Then you can get to playing.
 
-Link to your youtube video
+https://youtu.be/g1sLsXLmSmY
